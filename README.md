@@ -8,18 +8,30 @@ The system uses linked list data structure to store product information in memor
 
 Key Features:
 
-* Product CRUD operations (Create, Read, Update, Delete)
-* Batch import/export of product data
-* Multiple search methods (by ID, name, brand, category)
-* Product categorization (Pen, Notebook, Paint, Other)
-* Price-based sorting (ascending/descending)
-* Category-based statistics
-* Total inventory value calculation
-* Data persistence using text files
-* Input validation and error handling
-* Formatted table display with truncation
+- Product CRUD operations (Create, Read, Update, Delete)
+- Batch import/export of product data
+- Multiple search methods (by ID, name, brand, category)
+- Product categorization (Pen, Notebook, Paint, Other)
+- Price-based sorting (ascending/descending)
+- Category-based statistics
+- Total inventory value calculation
+- Data persistence using text files
+- Input validation and error handling
+- Formatted table display with truncation
 
-## Project Structure 
+## demo
+
+**MenuPage**
+
+![alt text](Pictures/menu.png)
+
+**ViewPage**
+
+![alt text](Pictures/View.png)
+
+**The remaining functions on the menu are interested in being cloned to be viewed locally**
+
+## Project Structure
 
 ```bash
 ├── myGoods/ # Source code directory
@@ -33,46 +45,50 @@ Key Features:
 
 ## Tech Stack
 
-* Language: C
-* Build System: Visual Studio 2022
-* Data Structure: Linked List
-* Data Storage: Text File
-* Interface: Command Line
+- Language: C
+- Build System: Visual Studio 2022
+- Data Structure: Linked List
+- Data Storage: Text File
+- Interface: Command Line
 
 ## Features
 
 ### Product Management
-* Add new products with validation
-* Update existing product information
-* Delete products with confirmation
-* View all products in formatted table
-* Batch import products from file
+
+- Add new products with validation
+- Update existing product information
+- Delete products with confirmation
+- View all products in formatted table
+- Batch import products from file
 
 ### Search Functions
-* Search by product ID
-* Search by product name
-* Search by brand name
-* Filter by product category
+
+- Search by product ID
+- Search by product name
+- Search by brand name
+- Filter by product category
 
 ### Analysis Features
-* Sort products by price
-* Count products by category
-* Calculate total inventory value
-* Display statistics
+
+- Sort products by price
+- Count products by category
+- Calculate total inventory value
+- Display statistics
 
 ## Installation
 
 ### Requirements
-* Visual Studio 2022 or other C compiler
-* Windows environment (for Visual Studio)
+
+- Visual Studio 2022 or other C compiler
+- Windows environment (for Visual Studio)
 
 ### Setup Steps
 
 1. Clone the repository
 
 ```bash
-git clone [repository-url]
-cd stationery-store-system
+git clone https://github.com/huangyukun26/CProgrammingCourseDesign-StationeryStoreInventoryManagementSystem.git
+cd myGoods
 ```
 
 2. Open the project in Visual Studio 2022
@@ -81,40 +97,43 @@ cd stationery-store-system
 ## Usage Guide
 
 1. Main Menu Options:
-   * 1 - Batch Import Initial Products
-   * 2 - View All Products
-   * 3 - Search Products
-   * 4 - Add New Product
-   * 5 - Delete Product
-   * 6 - Update Product
-   * 7 - Count Products by Category
-   * 8 - Sort Products by Price
-   * 9 - Calculate Total Inventory Value
-   * 0 - Exit
+
+   - 1 - Batch Import Initial Products
+   - 2 - View All Products
+   - 3 - Search Products
+   - 4 - Add New Product
+   - 5 - Delete Product
+   - 6 - Update Product
+   - 7 - Count Products by Category
+   - 8 - Sort Products by Price
+   - 9 - Calculate Total Inventory Value
+   - 0 - Exit
 
 2. Data Format:
-   * Product ID: Max 18 characters
-   * Product Name: Max 48 characters
-   * Brand: Max 48 characters
-   * Category: Pen/Notebook/Paint/Other
-   * Price: Positive number
-   * Stock: Non-negative integer
+   - Product ID: Max 18 characters
+   - Product Name: Max 48 characters
+   - Brand: Max 48 characters
+   - Category: Pen/Notebook/Paint/Other
+   - Price: Positive number
+   - Stock: Non-negative integer
 
 ## Development Guide
 
 ### Code Standards
-* Use clear and meaningful variable names
-* Add comments for functions and complex logic
-* Validate all user inputs
-* Handle error cases appropriately
-* Format output for readability
+
+- Use clear and meaningful variable names
+- Add comments for functions and complex logic
+- Validate all user inputs
+- Handle error cases appropriately
+- Format output for readability
 
 ### Data Validation Rules
-* All string fields have maximum length limits
-* Price must be positive
-* Stock quantity must be non-negative
-* Product ID must be unique
-* Category must be one of the predefined types
+
+- All string fields have maximum length limits
+- Price must be positive
+- Stock quantity must be non-negative
+- Product ID must be unique
+- Category must be one of the predefined types
 
 ## Contributing
 
