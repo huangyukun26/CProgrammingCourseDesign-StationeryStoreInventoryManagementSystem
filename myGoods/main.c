@@ -69,7 +69,7 @@ void displayMenu()
     printf("4. Add New Product\n");
     printf("5. Delete Product\n");
     printf("6. Update Product\n");
-    printf("7. Count Products by Category\n");
+    printf("7. Count by Category\n");
     printf("8. Sort Products by Price\n");
     printf("9. Calculate Total Inventory Value\n");
     printf("0. Exit\n");
@@ -373,8 +373,21 @@ int getIntegerInput(int min, int max)
     }
 }
 
+// 显示类别选择菜单
+// 功能：显示商品类别选择菜单
+void displayCategoryMenu()
+{
+    printf("\n=== Select Category ===\n");
+    printf("0. Pen\n");
+    printf("1. Notebook\n");
+    printf("2. Paint\n");
+    printf("3. Other\n");
+    printf("4. All Categories\n");
+    printf("Please select a category (0-4): ");
+}
+
 // 主函数
-// 功能：程序的入口点，实现主要的交互逻辑
+// 功能：程序的入口点，实现主要���交互逻辑
 int main()
 {
     // 初始化商品管理器
@@ -465,11 +478,38 @@ int main()
             break;
 
         case 7: // 按类别统计
-            printf("\n=== Product Count by Category ===\n");
-            printf("Pen products: %d\n", countGoodsByCategory(manager, PEN));
-            printf("Notebook products: %d\n", countGoodsByCategory(manager, NOTEBOOK));
-            printf("Paint products: %d\n", countGoodsByCategory(manager, PAINT));
-            printf("Other products: %d\n", countGoodsByCategory(manager, OTHER));
+            do {
+                printf("\n=== Count by Category ===\n");
+                displayCategoryMenu();
+                int categoryChoice;
+                if (scanf_s("%d", &categoryChoice) != 1 || categoryChoice < 0 || categoryChoice > 4)
+                {
+                    clearInputBuffer();
+                    printf("Invalid input. Please enter a number between 0 and 4.\n");
+                    continue;
+                }
+                clearInputBuffer();
+
+                if (categoryChoice == 4) // All categories
+                {
+                    printf("Pen products: %d\n", countGoodsByCategory(manager, PEN));
+                    printf("Notebook products: %d\n", countGoodsByCategory(manager, NOTEBOOK));
+                    printf("Paint products: %d\n", countGoodsByCategory(manager, PAINT));
+                    printf("Other products: %d\n", countGoodsByCategory(manager, OTHER));
+                }
+                else
+                {
+                    GoodsCategory selectedCategory = (GoodsCategory)categoryChoice;
+                    int count = countGoodsByCategory(manager, selectedCategory);
+                    printf("Products in category [%s]: %d\n", categoryToString(selectedCategory), count);
+                }
+
+                // 提示用户是否返回主菜单
+                if (getConfirmation("Return to main menu?"))
+                {
+                    break;
+                }
+            } while (1);
             break;
 
         case 8: // 按价格排序
