@@ -302,7 +302,7 @@ int addGoods(GoodsManager* manager, Goods goods)
 }
 
 //删除商品
-//功能：从链表中���除指定ID的商品
+//功能：从链表中除指定ID的商品
 //参数：manager - 管理器指针，id - 要删除的商品ID
 //返回：成功返回1，失败返回0
 int deleteGoods(GoodsManager* manager, const char* id) 

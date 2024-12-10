@@ -130,19 +130,19 @@ Goods inputGoodsInfo()
 // 处理批量导入
 // 功能：从文件导入商品数据或手动输入多条商品信息
 // 参数：manager - 商品管理器指针
-void handleBatchInput(GoodsManager *manager)
+void handleBatchInput(GoodsManager **manager)
 {
     printf("\n=== Batch Import Products ===\n");
 
     // 检查是否已有数据
-    if (manager->count > 0)
+    if ((*manager)->count > 0)
     {
         if (getConfirmation("Existing data will be cleared. Continue?"))
         {
             // 清空现有数据
-            freeGoodsManager(manager);
-            manager = initGoodsManager();
-            if (manager == NULL)
+            freeGoodsManager(*manager);
+            *manager = initGoodsManager();
+            if (*manager == NULL)
             {
                 printf("System initialization failed!\n");
                 return;
@@ -154,7 +154,7 @@ void handleBatchInput(GoodsManager *manager)
         }
     }
 
-    if (loadFromFile(manager, DATA_FILE))
+    if (loadFromFile(*manager, DATA_FILE))
     {
         printf("Successfully loaded products from file!\n");
     }
@@ -171,7 +171,7 @@ void handleBatchInput(GoodsManager *manager)
 
             if (isValidGoods(goods))
             {
-                if (addGoods(manager, goods))
+                if (addGoods(*manager, goods))
                 {
                     count++;
                     printf("Product added successfully!\n");
@@ -187,7 +187,7 @@ void handleBatchInput(GoodsManager *manager)
             }
         }
 
-        if (saveToFile(manager, DATA_FILE))
+        if (saveToFile(*manager, DATA_FILE))
         {
             printf("Products saved to file.\n");
         }
@@ -387,7 +387,7 @@ void displayCategoryMenu()
 }
 
 // 主函数
-// 功能：程序的入口点，实现主要���交互逻辑
+// 功能：程序的入口点，实现主要交互逻辑
 int main()
 {
     // 初始化商品管理器
@@ -430,7 +430,7 @@ int main()
             break;
 
         case 1: // 批量导入
-            handleBatchInput(manager);
+            handleBatchInput(&manager);
             break;
 
         case 2: // 显示所有商品
